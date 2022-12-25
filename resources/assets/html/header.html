@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+            <meta content="IE=edge" http-equiv="X-UA-Compatible">
+                <meta content="width=device-width, initial-scale=1" name="viewport">
+                    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+                    <title>
+                        Bootstrap example
+                    </title>
+                    <link href="../css/app.css" rel="stylesheet">
+                    </link>
+                    <script src="../js/app.js" type="text/javascript">
+                    </script>
+                    <!--[if lt IE 9]>
+                          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+                          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+                        <![endif]-->
+                </meta>
+            </meta>
+        </meta>
+    </head>
+</html>
+<body>
+    <div class="modal-bg">
+    </div>
+    <div class="sign-in-form">
+        <div class="sign-in-title">Sign in</div>
+        <form>
+            <div class="input-fields-group">
+                <div class="field-name">Username or email</div>
+                <input type="text" name="user" placeholder="Username or email">
+                <div class="field-name">password</div>
+                <input type="password" name="passw">
+            </div>
+            <button class="rounded-3">Sign in</button>
+            <a class="password-restore" href="#">Forgot your password?</a>
+        </form>
+    </div>        
+    
+    <button class="menu-open">
+    </button>
+    <div class="header">
+        <div class="bg">
+        </div>
+        <ul class="menu">
+            <li class="logo">
+                <img src="../img/logo.jpg">
+                </img>
+            </li>
+            <li class="menu-close">
+                <button class="close">
+                </button>
+            </li>
+            <li>
+                <a class="menu-link @@if (pageName === 'internet of things') {active-page}" href="main.html">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a class="menu-link @@if (pageName === 'services') {active-page}" href="services.html">
+                    Services
+                </a>
+            </li>
+            <li>
+                <a class="menu-link @@if (pageName === 'about us') {active-page}" href="about.html">
+                    About
+                </a>
+            </li>
+            <li>
+                <a class="menu-link @@if (pageName === 'sign up') {active-page}" href="sign_up.html">
+                    Sign up
+                </a>
+            </li>
+            <li>
+                <a class="menu-link @@if (pageName === 'contact') {active-page}" href="contact.html">
+                    Contact
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="london">
+        <div class="text-on-london">
+            <h1>
+                @@pageName
+            </h1>
+            <h2>
+                for your business
+            </h2>
+            <p>
+                At vero eos et accusamus et iusto odio dignissimos
+                ducimus qui blanditiis praesentium voluptatum del-
+                eniti atque corrupti. At vero eos et accusamus et
+                iusto odio dignissimos ducimus qui blanditiis prae-
+                sentium voluptatum deleniti atque corrupti
+            </p>
+            <button class="rounded-1" id="sign-in">
+                Sign in
+            </button>
+        </div>
+    </div>

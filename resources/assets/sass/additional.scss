@@ -1,0 +1,649 @@
+@font-face {
+	font-family: Glyphs;
+	src: url("../fonts/bootstrap/glyphicons-halflings-regular.ttf");
+}
+
+span {
+	&[class|=glyph] {
+		font-family: Glyphs;
+		&.glyph-close::before {
+			content: "\e014";
+		}
+		&.glyph-menu::before {
+			content: "\e236";
+		}
+	}
+}
+
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.center-by-margin {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	color: $color-1;
+	font-family: sans-serif;
+}
+
+img {
+	@extend .center-by-margin;
+	max-width: 100%;
+}
+
+a {
+	@extend .center-by-margin;
+	color: inherit;
+	text-decoration: none;
+	&.simple {
+		font-size: $font-size-5;
+		padding: 4px 0;
+		border: 1px solid;
+	}
+	&.menu-link {
+		width: 89%;
+		padding: 7px 0;
+		font-size: $font-size-1;
+		&.active-page {
+			background-color: $color-5;
+		}
+	}
+}
+
+h1, h2 {
+	font-variant: small-caps;
+}
+
+h1 {
+	font-size: $font-size-2;
+}
+
+h2 {
+	font-size: $font-size-3;
+}
+
+h3 {
+	font-size: $font-size-6;
+}
+
+p {
+	font-size: $font-size-4;
+	padding: $inner-block-page-padding 0;
+	line-height: 1.5;
+}
+
+button {
+	@extend .center-by-margin;
+	color: inherit;
+	cursor: pointer;
+	&%abstract-rounded {
+		border-radius: 10px;
+	}
+	&.rounded-1 {
+		@extend %abstract-rounded;
+		font-size: $font-size-5;
+		padding: 4px 53px;
+		border: 4px solid;
+		background-color: $color-6;
+	}
+	&.rounded-2 {
+		@extend %abstract-rounded;
+		padding: 3px 40px;
+		border: 3px solid #6c81ac;
+		background-color: #4f699b;
+		margin-top: 12px;
+		margin-bottom: 12px;
+		font-size: $font-size-7;
+	}
+	&.rounded-3 {
+		border-radius: 12px;
+		height: 46px;
+		width: 176px;
+		border: 3px solid;
+		font-size: 18px;
+		background-color: #4675a9;
+	}
+	&%mobile {
+		@extend span[class|=glyph];
+		border: none;
+		font-size: 34px;
+		background-color: transparent;
+	}
+	&.close {
+		@extend %mobile;
+		@extend .glyph-close;
+		margin-left: $button-close-margin-left;
+		width: $button-close-width;
+	}
+	&.menu-open {
+		@extend %mobile;
+		@extend .glyph-menu;
+		position: fixed;
+		right: 3%;
+		margin-top: 3%;
+		border-radius: 50%;
+		width: 54px;
+		height: 54px;
+		background-color: $color-3;
+		opacity: $header-opacity;
+		@include transition(transform);
+		display: none;
+		@media only screen and (max-width: $max-width-3) {
+			display: block;
+		}
+	}
+}
+
+.header {
+	height: $header-height;
+	width: 100%;
+	position: fixed;
+	@include transition(left);
+	>.bg {
+		height: inherit;
+		position: inherit;
+		width: inherit;
+		background-color: $color-3;
+		opacity: $header-opacity;
+	}
+	>.menu {
+		height: inherit;
+		position: inherit;
+		width: inherit;
+		padding: 5px 0;
+		text-align: center;
+		>li {
+			width: $menu-item-link-width;
+			list-style-type: none;
+			float: left;
+			border-right: $menu-item-border-right;
+			padding: 3px 0;
+			>* {
+				padding: 7px 0;
+			}
+			&.logo {
+				width: $menu-item-logo-width;
+			}
+			&.menu-close {
+				display: none;
+			}
+			@media only screen and (max-width: $max-width-1) {
+				& {
+					width: 20%;
+				}
+				&.logo {
+					display: none;
+				}
+				&:last-child {
+					border-right: none;
+				}
+			}
+			@media only screen and (max-width: $max-width-3) {
+				& {
+					float: none;
+					width: 100%;
+					height: 16.6%;
+				}
+				&.menu-close {
+					display: list-item;
+				}
+				&:last-child {
+					border-right: $menu-item-border-right;
+				}
+			}
+		}
+	}
+	@media only screen and (max-width: $max-width-3) {
+		& {
+			overflow-y: scroll;
+			width: $mobile-menu-width;
+			height: 100%;
+			left: -$mobile-menu-width;
+		}
+	}
+}
+
+.london {
+	padding: $common-padding;
+	border-top: 1px solid $color-3;
+	background: url(../img/london.jpg) no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	>.text-on-london {
+		margin-top: $header-height;
+		width: 50%;
+		@media only screen and (max-width: $max-width-1) {
+			width: 100%;
+		}
+	}
+}
+
+.main {
+	@extend .clearfix;
+	padding: $common-padding;
+	>.main-description {
+		width: 50%;
+		float: left;
+		@media only screen and (max-width: $max-width-1) {
+			width: 100%;
+		}
+		>h2 {
+			color: $color-4;
+		}
+		>p {
+			color: $color-5;
+		}
+	}
+}
+
+.services {
+	padding: $common-padding;
+	>.services-description {
+		>h2 {
+			color: $color-4;
+			@media only screen and (max-width: $max-width-3) {
+				margin-top: 1%;
+			}
+		}
+		>p {
+			color: $color-5;
+		}
+	}
+	>.employee {
+		background-color: $color-5;
+		padding: $inner-block-page-padding;
+		@extend .clearfix;
+		&:not(:last-child) {
+			margin-bottom: $employee-block-margin-bottom;
+			@media only screen and (max-width: $max-width-2) {
+				margin-bottom: $common-padding;
+			}
+		}
+		>img {
+			width: $employee-img-width-1;
+			float: left;
+			@media only screen and (max-width: $max-width-2) {
+				width: $employee-img-width-2;
+			}
+			@media only screen and (max-width: $max-width-3) {
+				width: 100%;
+				margin-bottom: $common-padding;
+			}
+		}
+		>.employee-block {
+			width: $employee-block-width-1;
+			margin-left: $employee-block-margin-left-1;
+			@media only screen and (max-width: $max-width-2) {
+				width: $employee-block-width-2;
+				margin-left: $employee-block-margin-left-2;
+			}
+			@media only screen and (max-width: $max-width-3) {
+				width: 100%;
+				margin-left: 0;
+			}
+			>.employee-fsn {
+				border-bottom: 1px solid;
+			}
+			>.employee-desc {}
+		}
+	}
+}
+
+.about-us {
+	color: $color-5;
+	padding: $common-padding $common-padding/2;
+	.how-we-work {
+		@extend .clearfix;
+		>img {
+			border: 4px solid $color-3;
+			width: 50%;
+			float: left;
+			@media only screen and (max-width: $max-width-2) {
+				float: none;
+				width: 74%;
+			}
+			@media only screen and (max-width: $max-width-3) {
+				width: 95%;
+			}
+		}
+		>.how-we-work-block {
+			margin-left: 60%;
+			@media only screen and (max-width: $max-width-2) {
+				margin-left: 0;
+				margin-top: 4%;
+			}
+			>h2.how-we-work-header {
+				border-bottom: 2px solid;
+				color: $color-4;
+				text-align: center;
+			}
+			>p.how-we-work-text {
+				font-size: $font-size-1;
+			}
+		}
+	}
+	>.meet-experts {
+		>h2.meet-header {
+			color: $color-4;
+			text-align: center;
+			margin-top: $common-padding/2;
+		}
+	}
+	.experts-group {
+		@extend .clearfix;
+		.expert {
+			width: 25.3%;
+			float: left;
+			border-radius: 13px;
+			margin: 0 4%;
+			@media only screen and (max-width: $max-width-4) {
+				width: $expert-max-width-2-width;
+			}
+			@media only screen and (max-width: $max-width-5) {
+				$new-width: 80%;
+				$new-margin: (100% - 80%) / 2;
+				width: $new-width;
+				margin: 0 $new-margin;
+				margin-top: $new-margin;
+			}
+			&:nth-child(1) {
+				background-color: $color-8;
+			}
+			&:nth-child(2) {
+				background-color: $color-9;
+			}
+			&:nth-child(3) {
+				background-color: $color-10;
+				@media only screen and (max-width: $max-width-4) and (min-width: $max-width-5 + 1px) {
+					$margin-left-right: (100% - $expert-max-width-2-width) / 2;
+					margin-top: 8%;
+					margin-left: $margin-left-right;
+					margin-right: $margin-left-right;
+				}
+			}
+			>img.expert-photo {
+				margin-top: 6%;
+				width: 59%;
+				@media only screen and (max-width: $max-width-3) {
+					width: 81%;
+				}
+			}
+			>p.expert-description {
+				padding: 0 8%;
+				padding-bottom: 22%;
+				padding-top: 5%;
+				@media only screen and (max-width: $max-width-4) {
+					padding-bottom: 13%;
+				}
+			}
+		}
+	}
+}
+
+.contact, .sign-up {
+	@extend .clearfix;
+	padding: $common-padding;
+	>.description {
+		>h2 {
+			color: $color-5;
+		}
+		>p {
+			color: $color-5;
+		}
+	}
+	>form {
+		width: 50%;
+		float: left;
+		border: 3px solid $color-11;
+		background-color: $color-12;
+		padding: 0 2%;
+		@media only screen and (max-width: $max-width-2) {
+			width: 100%;
+			float: none;
+		}
+		>h3.form-header {
+			text-align: center;
+			border-bottom: 2px solid $color-18;
+			margin-bottom: 4%;
+			padding: 9px 0;
+		}
+		>.form-input-fields-group {
+			border: solid $color-13;
+			border-width: inherit;
+			background-color: $color-14;
+			padding: 13px;
+			>input, textarea {
+				width: 100%;
+				border: 2px solid $color-15;
+				font-size: $font-size-7;
+				@include placeholder($color-17);
+				margin: 5px 0;
+				padding: 3px 7px;
+				color: $color-1;
+				background-color: $color-16;
+				&:-webkit-autofill {
+					&, &:hover, &:focus {
+						-webkit-text-fill-color: $color-1;
+						-webkit-box-shadow: 0 0 0px 1000px $color-16 inset;
+					}
+				}
+			}
+			textarea {
+				resize: none;
+				height: 110px;
+			}
+		}
+	}
+	img {
+		$margin-top-bottom: 83px;
+		margin-top: $margin-top-bottom;
+		margin-bottom: $margin-top-bottom;
+		@media only screen and (max-width: $max-width-1) {
+			width: 43%;
+			margin-left: 61%;
+		}
+		@media only screen and (max-width: $max-width-2) {
+			width: 69%;
+			margin-left: auto;
+			margin-right: auto;
+			$m-t-b: 40px;
+			margin-top: $m-t-b;
+			margin-bottom: $m-t-b;
+		}
+		@media only screen and (max-width: $max-width-5) {
+			width: 94%;
+		}
+	}
+}
+
+.modal-bg {
+	position: fixed;
+	z-index: 1;
+	background-color: #626262;
+	width: 100%;
+	height: 100%;
+	@include opacity(0.5);
+	display: none;
+}
+
+.sign-in-form {
+	position: fixed;
+	width: 650px;
+	height: 395px;
+	border: 3px solid $color-19;
+	background-color: $color-20;
+	z-index: 1;
+	padding-top: 6px;
+	padding-left: 28px;
+	padding-right: 28px;
+	left: 50%;
+	margin-left: -325px;
+	top: 50%;
+	margin-top: -197.5px;
+	display: none;
+	@media only screen and (max-width: $max-width-4) {
+		width: 95%;
+		left: 2.5%;
+		margin-left: 0;
+	}
+	@media only screen and (max-width: $max-width-3) {
+		height: 442px;
+	}
+	@media only screen and (max-height: $max-height-1) {
+		height: 234px;
+		margin-top: -117px;
+	}
+	>.sign-in-title {
+		text-align: center;
+		height: 65px;
+		line-height: 65px;
+		border-bottom: 1px solid;
+		font-size: 36px;
+	}
+	>form {
+		$common-height: 38px;
+		$common-font-size: 18px;
+		font-size: $common-font-size;
+		margin-top: 65px;
+		@media only screen and (max-height: $max-height-1) {
+			margin-top: 19px;
+		}
+		>.field-name {
+			height: $common-height;
+			line-height: $common-height;
+		}
+		.input-fields-group {
+			@media only screen and (max-height: $max-height-1) {
+				width: 50%;
+				float: left;
+			}
+			>input {
+				width: 100%;
+				height: $common-height;
+				padding-left: 25px;
+				padding-right: 25px;
+				border: 3px solid #9abfec;
+				@include placeholder($color-1);
+				font-size: inherit;
+				color: $color-1;
+				$bg-color: #83a3cc;
+				background-color: $bg-color;
+				&:-webkit-autofill {
+					&, &:hover, &:focus {
+						-webkit-text-fill-color: $color-1;
+						-webkit-box-shadow: 0 0 0px 1000px $bg-color inset;
+					}
+				}
+			}
+		}
+		>button {
+			margin-left: 33.3%;
+			margin-top: 27px;
+			display: inline-block;
+			@media only screen and (max-width: $max-width-4) {
+				margin-left: 0;
+				margin-top: 27px;
+				display: inline-block;
+				width: 50%;
+			}
+			@media only screen and (max-width: $max-width-3) {
+				width: 100%;
+			}
+			@media only screen and (max-height: $max-height-1) {
+				margin-top: 17px;
+				margin-left: 5%;
+				width: 40%;
+			}
+		}
+		>.password-restore {
+			display: inline-block;
+			width: 33.3%;
+			text-align: center;
+			@media only screen and (max-width: $max-width-4) {
+				width: 48%;
+				text-align: right;
+			}
+			@media only screen and (max-width: $max-width-3) {
+				width: 100%;
+				text-align: center;
+				margin-top: 27px;
+			}
+			@media only screen and (min-width: $max-width-4+1) {
+				&:hover {
+					border-bottom: 1px solid white;
+					padding-bottom: 1px;
+				}
+			}
+			@media only screen and (max-height: $max-height-1) {
+				margin-top: 26px;
+				width: 40%;
+				margin-left: 5%;
+			}
+		}
+	}
+}
+
+.footer {
+	>.part-1 {
+		padding: $common-padding;
+		padding-top: 0;
+		padding-bottom: 0;
+		background-color: $color-5;
+	}
+	>.part-2 {
+		padding: $common-padding;
+		padding-top: 0;
+		padding-bottom: $common-padding / 3;
+		background-color: $color-3;
+		>.description {
+			color: $color-7;
+		}
+		>.blocks-group {
+			@extend .clearfix;
+			>.block {
+				float: left;
+				width: 25%;
+				background-color: $color-5;
+				text-align: center;
+				padding: 1%;
+				&:nth-child(2) {
+					margin: 0 12.5%;
+				}
+				.short {
+					height: 16.6%;
+					border-bottom: 1px solid;
+					font-size: $font-size-1;
+					padding-bottom: 4%;
+				}
+				.more {}
+				@media only screen and (max-width: $max-width-2) {
+					&:nth-child(1), &:nth-child(2) {
+						width: 47.5%;
+					}
+					&:nth-child(2) {
+						margin-right: 0;
+						margin-left: 5%;
+						margin-bottom: 5%;
+					}
+					&:nth-child(3) {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}

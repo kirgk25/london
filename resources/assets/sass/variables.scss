@@ -1,0 +1,72 @@
+$icon-font-path: "public/fonts/bootstrap/";
+
+$button-close-margin-left : 65%;
+$button-close-width : 100% - $button-close-margin-left;
+
+$common-padding: 7%;
+$common-transition: 0.5s;
+$footer-top-bottom-padding: 0;
+
+$color-1: white;
+$color-2: #ccd6e0; //grey
+$color-3: #2a4783; //lighter-blue (background of menu), how-we-work image border color
+$color-4: #263d83; //darker-blue 
+$color-5: #4f699b; // menu item hover, background of employee on services page
+$color-6: #44506a; //button
+$color-7: #939dba; //footer part 2 sub-part 1 font color
+
+$color-8: #d2d8e4; //expert 1 backgroud
+$color-9: #ccd0d9; //expert 2 backgroud
+$color-10: #dae2ed; //expert 3 backgroud
+
+$color-11: #5079b0; //form outer border
+$color-12: #304769; //form outer backgorund
+$color-13: #8fadd1; // class form-input-group border
+$color-14: $color-5; // class form-input-group backgorund, form button background
+$color-15: $color-7; //form input field border
+$color-16: #6c81ac; //form input field background, form button border
+$color-17: $color-15; //form input field font for placeholder
+$color-18: #a5d1f2; // form header border-bottom
+
+$color-19: $color-13; // sign-in-form border
+$color-20: #35496e; // sign-in-form background
+
+
+$employee-block-margin-bottom: $common-padding / 4;
+
+$employee-img-width-1: 16.6%;
+$employee-block-margin-left-1: $employee-img-width-1 + ($employee-img-width-1 / 2);
+$employee-block-width-1: 100% - $employee-block-margin-left-1;
+
+$employee-img-width-2: 40%;
+$employee-block-margin-left-2: $employee-img-width-2 + 5%;
+$employee-block-width-2: 100% - $employee-block-margin-left-2;
+
+$expert-max-width-2-width: 41.3%;
+
+$inner-block-page-padding: 33px;
+
+$font-size-1: 24px; //menu, short in footer
+$font-size-2: 71px; //h1
+$font-size-3: 52px; //h2 
+$font-size-4: 17px; //p 
+$font-size-5: 21px; //button
+$font-size-6: 26px; //h3
+$font-size-7: 16.3px; // form element font size
+
+$header-height: 62px;
+$header-opacity: 0.85;
+
+$menu-item-link-width: 11.1%;
+$menu-item-logo-width: $menu-item-link-width * 3;
+$menu-item-border-right: 2px solid $color-1;
+
+$max-width-1: 982px;
+$max-width-2: 800px;
+$max-width-3: 576px;
+$max-width-4: 700px;
+$max-width-5: 320px; // iPhone 5
+
+$max-height-1: 430px;
+
+$mobile-menu-width: 75%;
